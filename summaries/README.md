@@ -32,3 +32,14 @@ This folder gives Codex:
   "timestamp": "2025-07-10T10:00:00Z"
 }
 ```
+
+## 🚀 Usage
+
+Generate a summary by running the helper script with a target file:
+
+```bash
+python summary.py path/to/large_file.js > path/to/large_file.summary.json
+```
+
+The script prints a JSON object matching the format above, which you can redirect
+to a file for later use.
