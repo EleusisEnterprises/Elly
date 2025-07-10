@@ -19,6 +19,8 @@
     }
   });
 
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
+
   async function sendMessage() {
     if (!input.trim()) return;
     const userMessage: Message = { role: 'user', content: input, timestamp: new Date() };
