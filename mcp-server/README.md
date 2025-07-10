@@ -23,6 +23,9 @@ The server runs on `http://localhost:8000` by default.
 Set `OPENAI_API_KEY` in your environment so the server can call OpenAI. You can
 copy `.env.example` to `.env` and add your key:
 
+The server initializes an `openai.OpenAI` client using this key when handling
+requests.
+
 ```bash
 cp .env.example .env
 ```
