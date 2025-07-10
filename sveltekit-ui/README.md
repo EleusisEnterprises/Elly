@@ -6,6 +6,7 @@ Frontend interface for the Codex Assistant. This project uses SvelteKit and Tail
 
 - Simple chat panel that sends messages to the MCP backend at `http://localhost:8000/chat`.
 - Tailwind styling for quick prototyping.
+- Global styles from `src/app.css` are imported in `src/routes/+layout.svelte`.
 
 ## Creating a project
 
