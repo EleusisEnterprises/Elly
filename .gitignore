@@ -5,3 +5,4 @@ __pycache__/
 # SvelteKit build outputs
 sveltekit-ui/build/
 sveltekit-ui/.svelte-kit/
+.env
