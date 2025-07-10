@@ -1,16 +1,27 @@
 <script lang="ts">
 
+  import { afterUpdate } from 'svelte';
+  import { fade } from 'svelte/transition';
+
   interface Message {
     role: 'user' | 'assistant';
     content: string;
+    timestamp: Date;
   }
 
   let messages: Message[] = [];
   let input = '';
+  let container: HTMLDivElement;
+
+  afterUpdate(() => {
+    if (container) {
+      container.scrollTop = container.scrollHeight;
+    }
+  });
 
   async function sendMessage() {
     if (!input.trim()) return;
-    const userMessage: Message = { role: 'user', content: input };
+    const userMessage: Message = { role: 'user', content: input, timestamp: new Date() };
     messages = [...messages, userMessage];
     const res = await fetch('http://localhost:8000/chat', {
       method: 'POST',
@@ -22,20 +33,34 @@
       const data = await res.json();
       const assistantMessage: Message = {
         role: 'assistant',
-        content: data.response
+        content: data.response,
+        timestamp: new Date()
       };
       messages = [...messages, assistantMessage];
     } else {
-      messages = [...messages, { role: 'assistant', content: 'Error contacting server' }];
+      messages = [
+        ...messages,
+        { role: 'assistant', content: 'Error contacting server', timestamp: new Date() }
+      ];
     }
   }
 </script>
 
 <div class="flex flex-col h-full">
-  <div class="flex-1 overflow-y-auto p-4 space-y-2">
+  <div class="flex-1 overflow-y-auto p-4 space-y-2" bind:this={container}>
     {#each messages as msg}
-      <div class="p-2 rounded-md" class:ml-auto={msg.role === 'user'} class:bg-blue-100={msg.role === 'user'} class:bg-gray-100={msg.role === 'assistant'}>
-        {msg.content}
+      <div
+        in:fade
+        class="max-w-xs p-3 rounded-lg shadow"
+        class:ml-auto={msg.role === 'user'}
+        class:bg-blue-500={msg.role === 'user'}
+        class:text-white={msg.role === 'user'}
+        class:bg-gray-200={msg.role === 'assistant'}
+      >
+        <p>{msg.content}</p>
+        <span class="block text-right text-xs text-gray-500 mt-1">
+          {msg.timestamp.toLocaleTimeString()}
+        </span>
       </div>
     {/each}
   </div>
