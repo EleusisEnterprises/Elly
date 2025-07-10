@@ -16,7 +16,7 @@ This tool is designed for **context-first interaction with OpenAI models**, spec
 ## 🗂️ Structure Overview
 
 ```
-codex-assistant/
+Elly/
 ├── mcp-server/       # FastAPI backend with MCP endpoints
 ├── sveltekit-ui/     # Frontend chat interface (SvelteKit)
 ├── agents/           # YAML agent definitions (see `agents/agents.yaml`)
