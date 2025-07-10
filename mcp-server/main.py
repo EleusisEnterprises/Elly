@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-import openai
+from openai import AsyncOpenAI
 from fastapi import FastAPI
 from pydantic import BaseModel
 
@@ -8,7 +8,7 @@ load_dotenv()
 
 app = FastAPI()
 
-client = openai.OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+client = AsyncOpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 class ChatRequest(BaseModel):
     message: str
@@ -16,7 +16,7 @@ class ChatRequest(BaseModel):
 @app.post("/chat")
 async def chat(request: ChatRequest):
     """Forward the message to OpenAI and return its reply."""
-    response = client.chat.completions.create(
+    response = await client.chat.completions.create(
         model="gpt-4",
         messages=[{"role": "user", "content": request.message}],
     )
