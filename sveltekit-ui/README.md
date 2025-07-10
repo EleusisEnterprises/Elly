@@ -1,11 +1,20 @@
 # SvelteKit UI
 
-Frontend interface for the Codex Assistant. This project uses SvelteKit and Tailwind CSS.
+Frontend interface for the Codex Assistant. This project uses SvelteKit and enhanced Tailwind CSS.
 
 ## Features
 
 - Simple chat panel that sends messages to the MCP backend defined in the `VITE_BACKEND_URL` environment variable.
+- Enhanced Tailwind styling for a cleaner interface.
+
+The chat layout now uses bubble-style messages with alternating colors for user
+and assistant responses, providing clearer visual separation.
+- Simple chat panel that sends messages to the MCP backend at `http://localhost:8000/chat`.
 - Tailwind styling for quick prototyping.
+- Styled chat bubbles with timestamps and fade-in animations.
+- Automatic scrolling to the latest message.
+- Soft gradient background for the main page.
+- Global styles from `src/app.css` are imported in `src/routes/+layout.svelte`.
 
 ## Creating a project
 
@@ -17,6 +26,12 @@ npx sv create
 
 # create a new project in my-app
 npx sv create my-app
+```
+
+Set `VITE_BACKEND_URL` in a `.env` file to control which MCP server the UI uses. Example:
+
+```bash
+VITE_BACKEND_URL=http://localhost:8000
 ```
 
 ## Developing
