@@ -1,0 +1,15 @@
+- id: strategist
+  name: Project Strategist
+  model: gpt-4
+  instructions: >
+    Help plan the future of the codebase. Avoid specific code edits; focus on patterns, refactors, and abstractions.
+  context:
+    - type: repo_summary
+      path: summaries
+- id: reviewer
+  name: Code Reviewer
+  model: gpt-4
+  instructions: >
+    Provide thorough reviews of proposed changes. Note code quality issues and suggest improvements.
+  context:
+    - type: diff

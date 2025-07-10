@@ -1,6 +1,6 @@
 # Agent Configuration — Codex Assistant
 
-This folder contains `agents.yaml`, which defines model instructions, personality types, and context preferences for Codex or OpenAI models.
+This folder contains `agents.yaml`, which defines model instructions, personality types, and context preferences for Codex or OpenAI models. The file lives at `agents/agents.yaml`.
 
 Each agent is used to focus the assistant's behavior in a specific way (e.g., reviewer, strategist, debugger).
 
@@ -30,3 +30,10 @@ context:
   - type: repo_summary
     path: ~/Projects/EleusisAI
 ```
+
+## 🛠️ Customizing Agents
+
+Edit `agents.yaml` to add new personalities or adjust existing ones. For each entry,
+specify an `id`, user-friendly `name`, target `model`, multi-line `instructions`,
+and a `context` list describing which repo data to load. Save your changes and
+restart the backend to apply them.
