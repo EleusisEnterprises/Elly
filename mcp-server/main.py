@@ -1,5 +1,5 @@
 import os
-
+from dotenv import load_dotenv 
 import openai
 from fastapi import FastAPI
 from pydantic import BaseModel
