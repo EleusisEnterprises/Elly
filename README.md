@@ -19,7 +19,7 @@ This tool is designed for **context-first interaction with OpenAI models**, spec
 codex-assistant/
 ├── mcp-server/       # FastAPI backend with MCP endpoints
 ├── sveltekit-ui/     # Frontend chat interface (SvelteKit)
-├── agents/           # YAML agent definitions
+├── agents/           # YAML agent definitions (see `agents/agents.yaml`)
 ├── summaries/        # Cached summaries of large files
 └── README.md         # This file — high-level context
 ```
@@ -55,3 +55,9 @@ This README is intended to help Codex:
 - Locate summary caches used for planning
 
 This file should be included in every model context request involving strategic or high-level planning.
+
+## ✍️ Customizing Agents
+
+Edit `agents/agents.yaml` to add or adjust agent personalities. Each entry defines
+an `id`, `name`, `model`, `instructions`, and a `context` list. Update these fields
+to tailor how the assistant operates.
