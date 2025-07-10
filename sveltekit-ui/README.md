@@ -1,6 +1,11 @@
-# sv
+# SvelteKit UI
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Frontend interface for the Codex Assistant. This project uses SvelteKit and Tailwind CSS.
+
+## Features
+
+- Simple chat panel that sends messages to the MCP backend at `http://localhost:8000/chat`.
+- Tailwind styling for quick prototyping.
 
 ## Creating a project
 
