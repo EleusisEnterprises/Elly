@@ -23,7 +23,8 @@
     if (!input.trim()) return;
     const userMessage: Message = { role: 'user', content: input, timestamp: new Date() };
     messages = [...messages, userMessage];
-    const res = await fetch('http://localhost:8000/chat', {
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
+    const res = await fetch(`${backendUrl}/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: input })
