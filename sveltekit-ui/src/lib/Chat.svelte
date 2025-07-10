@@ -8,11 +8,13 @@
   let messages: Message[] = [];
   let input = '';
 
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000';
+
   async function sendMessage() {
     if (!input.trim()) return;
     const userMessage: Message = { role: 'user', content: input };
     messages = [...messages, userMessage];
-    const res = await fetch('http://localhost:8000/chat', {
+    const res = await fetch(`${backendUrl}/chat`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: input })

@@ -4,7 +4,7 @@ Frontend interface for the Codex Assistant. This project uses SvelteKit and Tail
 
 ## Features
 
-- Simple chat panel that sends messages to the MCP backend at `http://localhost:8000/chat`.
+- Simple chat panel that sends messages to the MCP backend defined in the `VITE_BACKEND_URL` environment variable.
 - Tailwind styling for quick prototyping.
 
 ## Creating a project
@@ -41,3 +41,7 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
+## Environment variables
+
+Create a `.env` file in this folder and define `VITE_BACKEND_URL` to point at your MCP backend. The default used in development is `http://localhost:8000`.
