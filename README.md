@@ -27,6 +27,7 @@ Elly/
 ## 🔧 Setup Instructions
 
 ### Backend (MCP server)
+
 ```bash
 cd mcp-server
 python -m venv venv
@@ -34,14 +35,17 @@ source venv/bin/activate
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
+
 See `mcp-server/README.md` for endpoint details and additional usage notes.
 
 ### Frontend (SvelteKit UI)
+
 ```bash
 cd sveltekit-ui
 npm install
 npm run dev
 ```
+
 Open `http://localhost:5173` to interact with the chat interface.
 
 ---
