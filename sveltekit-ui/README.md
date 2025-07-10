@@ -1,41 +1,38 @@
-# SvelteKit Frontend — Chat UI for Codex Assistant
+# sv
 
-This folder holds the frontend chat interface for the assistant. Built in SvelteKit, it connects to the backend MCP server and renders:
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-- A chat view
-- Agent selection panel
-- Optional file or diff preview (coming soon)
+## Creating a project
 
-## 🔍 Folder Purpose
-
-This folder:
-- Provides the web UI for all agent interactions
-- Allows sending MCP-formatted messages to the backend
-- Will eventually support file selection for context routing
-
-## 🧠 Codex Context Use
-
-Codex should use this README to:
-- Understand that the frontend is read-only and declarative
-- Focus attention on chat rendering, not editing
-- Identify where agent selection and UI components live
-
-## 🗂️ Key Structure
-
-```
-sveltekit-ui/
-├── src/routes/         # Chat and agent routes
-├── src/lib/api.ts      # Communicates with MCP backend
-├── src/lib/components/ # ChatBox, AgentSelector, etc.
-```
-
-## 🚀 Development
-
-Install dependencies and start the dev server:
+If you're seeing this, you've probably already done this step. Congrats!
 
 ```bash
-npm install
-npm run dev
+# create a new project in the current directory
+npx sv create
+
+# create a new project in my-app
+npx sv create my-app
 ```
 
-The UI expects the MCP backend running on `http://localhost:8000`.
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
