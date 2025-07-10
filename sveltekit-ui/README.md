@@ -25,6 +25,17 @@ Codex should use this README to:
 ```
 sveltekit-ui/
 ├── src/routes/         # Chat and agent routes
-├── lib/api.ts          # Communicates with MCP backend
-├── lib/components/     # ChatBox, AgentSelector, etc.
+├── src/lib/api.ts      # Communicates with MCP backend
+├── src/lib/components/ # ChatBox, AgentSelector, etc.
 ```
+
+## 🚀 Development
+
+Install dependencies and start the dev server:
+
+```bash
+npm install
+npm run dev
+```
+
+The UI expects the MCP backend running on `http://localhost:8000`.
