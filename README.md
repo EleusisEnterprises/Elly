@@ -34,6 +34,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 uvicorn main:app --reload
 ```
+See `mcp-server/README.md` for endpoint details and additional usage notes.
 
 ### Frontend (SvelteKit UI)
 ```bash
